@@ -1,19 +1,29 @@
-# FHEVM React Template
+# 💼 Encrypted Job Application - FHEVM React DApp
 
-A minimal React frontend template for building FHEVM-enabled decentralized applications (dApps). This template provides a simple development interface for interacting with FHEVM smart contracts, specifically the `FHECounter.sol` contract.
+A minimal **React frontend** template for building **FHEVM-enabled decentralized applications (dApps)**.  
+This dApp allows users to securely search and apply for jobs on-chain using FHE (Fully Homomorphic Encryption) technology.  
 
-## 🚀 What is FHEVM?
+---
 
-FHEVM (Fully Homomorphic Encryption Virtual Machine) enables computation on encrypted data directly on Ethereum. This template demonstrates how to build dApps that can perform computations while keeping data private.
+## 🚀 Features
 
-## ✨ Features
+- 🔐 **Encrypted job applications** stored on-chain.  
+- 💰 Match jobs based on **desired salary** and **experience**.  
+- 🖼️ Includes **illustrations** and gradient UI for modern design.  
+- 🔑 Wallet connection via **RainbowKit + Wagmi**.  
+- 📄 Decrypt your submitted job application safely on-chain.  
 
-- **🔐 FHEVM Integration**: Built-in support for fully homomorphic encryption
-- **⚛️ React + Next.js**: Modern, performant frontend framework
-- **🎨 Tailwind CSS**: Utility-first styling for rapid UI development
-- **🔗 RainbowKit**: Seamless wallet connection and management
-- **🌐 Multi-Network Support**: Works on both Sepolia testnet and local Hardhat node
-- **📦 Monorepo Structure**: Organized packages for SDK, contracts, and frontend
+---
+
+## 🛠️ Technologies Used
+
+- **React** + TypeScript  
+- **Tailwind CSS** for styling  
+- **FHEVM SDK** for interacting with FHE-enabled smart contracts  
+- **RainbowKit** + **Wagmi** for wallet integration  
+- **Lucide React Icons** for clean UI icons  
+
+---
 
 ## 📋 Prerequinextjss
 
@@ -31,7 +41,7 @@ Before you begin, ensure you have:
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd fhevm-react-template
+cd privy-jobs
 
 # Initialize submodules (includes fhevm-hardhat-template)
 git submodule update --init --recursive
@@ -124,7 +134,7 @@ For more details, see the [MetaMask development guide](https://docs.metamask.io/
 This template uses a monorepo structure with three main packages:
 
 ```
-fhevm-react-template/
+privy-jobs/
 ├── packages/
 │   ├── fhevm-hardhat-template/    # Smart contracts & deployment
 │   ├── fhevm-sdk/                 # FHEVM SDK package
@@ -134,8 +144,8 @@ fhevm-react-template/
 
 ### Key Components
 
-#### 🔗 FHEVM Integration (`packages/nextjs/hooks/fhecounter-example/`)
-- **`useFHECounterWagmi.tsx`**: Example hook demonstrating FHEVM contract interaction
+#### 🔗 FHEVM Integration (`packages/nextjs/hooks`)
+- **`useFHEPrivyJobs.ts`**: Example hook demonstrating FHEVM contract interaction
 - Essential hooks for FHEVM-enabled smart contract communication
 - Easily copyable to any FHEVM + React project
 
