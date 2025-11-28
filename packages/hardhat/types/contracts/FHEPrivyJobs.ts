@@ -25,14 +25,18 @@ import type {
 export interface FHEPrivyJobsInterface extends Interface {
   getFunction(
     nameOrSignature:
+      | "confidentialProtocolId"
       | "getEncryptedJob"
       | "isJobSubmitted"
-      | "protocolId"
       | "submitEncryptedJob"
   ): FunctionFragment;
 
   getEvent(nameOrSignatureOrTopic: "EncryptedJobStored"): EventFragment;
 
+  encodeFunctionData(
+    functionFragment: "confidentialProtocolId",
+    values?: undefined
+  ): string;
   encodeFunctionData(
     functionFragment: "getEncryptedJob",
     values: [AddressLike]
@@ -40,10 +44,6 @@ export interface FHEPrivyJobsInterface extends Interface {
   encodeFunctionData(
     functionFragment: "isJobSubmitted",
     values: [AddressLike]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "protocolId",
-    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "submitEncryptedJob",
@@ -51,6 +51,10 @@ export interface FHEPrivyJobsInterface extends Interface {
   ): string;
 
   decodeFunctionResult(
+    functionFragment: "confidentialProtocolId",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "getEncryptedJob",
     data: BytesLike
   ): Result;
@@ -58,7 +62,6 @@ export interface FHEPrivyJobsInterface extends Interface {
     functionFragment: "isJobSubmitted",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "protocolId", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "submitEncryptedJob",
     data: BytesLike
@@ -120,11 +123,11 @@ export interface FHEPrivyJobs extends BaseContract {
     event?: TCEvent
   ): Promise<this>;
 
+  confidentialProtocolId: TypedContractMethod<[], [bigint], "view">;
+
   getEncryptedJob: TypedContractMethod<[user: AddressLike], [string], "view">;
 
   isJobSubmitted: TypedContractMethod<[user: AddressLike], [boolean], "view">;
-
-  protocolId: TypedContractMethod<[], [bigint], "view">;
 
   submitEncryptedJob: TypedContractMethod<
     [encryptedJob: BytesLike, zkProof: BytesLike],
@@ -137,14 +140,14 @@ export interface FHEPrivyJobs extends BaseContract {
   ): T;
 
   getFunction(
+    nameOrSignature: "confidentialProtocolId"
+  ): TypedContractMethod<[], [bigint], "view">;
+  getFunction(
     nameOrSignature: "getEncryptedJob"
   ): TypedContractMethod<[user: AddressLike], [string], "view">;
   getFunction(
     nameOrSignature: "isJobSubmitted"
   ): TypedContractMethod<[user: AddressLike], [boolean], "view">;
-  getFunction(
-    nameOrSignature: "protocolId"
-  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
     nameOrSignature: "submitEncryptedJob"
   ): TypedContractMethod<

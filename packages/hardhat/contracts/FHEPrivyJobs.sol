@@ -2,14 +2,14 @@
 pragma solidity ^0.8.24;
 
 import {FHE, euint32, externalEuint32} from "@fhevm/solidity/lib/FHE.sol";
-import {SepoliaConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
+import {ZamaEthereumConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
 
 /**
  * @title FHEPrivyJobs
  * @notice Stores encrypted job identifiers for users applying to a position.
  *         Each wallet can register exactly one encrypted job ID.
  */
-contract FHEPrivyJobs is SepoliaConfig {
+contract FHEPrivyJobs is ZamaEthereumConfig {
     /// @dev Mapping of applicant address to its encrypted job identifier.
     mapping(address => euint32) private _jobCipher;
 
